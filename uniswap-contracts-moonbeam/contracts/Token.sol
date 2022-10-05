@@ -1,8 +1,8 @@
-pragma solidity =0.5.16;
+pragma solidity =0.5.0;
 
-import '@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol';
-import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
-import '@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol';
+import 'https://github.com/Creepybits/openzeppelin/blob/main/contracts/token/ERC20/ERC20Detailed.sol';
+import 'https://github.com/Creepybits/openzeppelin/blob/main/contracts/token/ERC20/ERC20.sol';
+import 'https://github.com/Creepybits/openzeppelin/blob/main/contracts/token/ERC20/ERC20Mintable.sol';
 
 
 contract Token is ERC20Detailed, ERC20Mintable {
