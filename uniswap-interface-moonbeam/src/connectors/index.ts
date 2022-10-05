@@ -9,7 +9,7 @@ import { NetworkConnector } from './NetworkConnector'
 
 const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
   ? process.env.REACT_APP_NETWORK_URL
-  : 'https://rpc.api.moonbase.moonbeam.network'
+  : 'https://aum-rpc-api.coinpay.network/'
 const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
 const PORTIS_ID = process.env.REACT_APP_PORTIS_ID
 

@@ -88,7 +88,7 @@ export default function Menu() {
 
   return (
     <StyledMenu ref={node as any}>
-      <StyledMenuButton onClick={toggle}>
+      {/* <StyledMenuButton onClick={toggle}>
         <StyledMenuIcon />
       </StyledMenuButton>
       {open && (
@@ -106,7 +106,7 @@ export default function Menu() {
             {t('code')}
           </MenuItem>
         </MenuFlyout>
-      )}
+      )} */}
     </StyledMenu>
   )
 }

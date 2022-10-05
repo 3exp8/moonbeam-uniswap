@@ -5,7 +5,7 @@ import { Text } from 'rebass'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/images/mainlogo.png'
+import Logo from '../../assets/images/logo.png'
 import { useActiveWeb3React } from '../../hooks'
 //import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -114,10 +114,8 @@ const BalanceText = styled(Text)`
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
   [ChainId.MAINNET]: null,
-  [ChainId.STANDALONE]: 'Moonbeam Development',
-  [ChainId.MOONROCK]: 'Moonrock Rococo',
-  [ChainId.MOONBASE]: 'Moonbase Alpha',
-  [ChainId.MOONSHADOW]: 'Moonshadow Westend',
+  [ChainId.STANDALONE]: 'AUM Development',
+  [ChainId.MOONBASE]: 'AUM'
 }
 
 export default function Header() {
