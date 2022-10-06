@@ -19,7 +19,7 @@ export function isAddress(value: any): string | false {
 /*
 const DEVSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   1: '',
-  1287: 'xxxxxxxxx',
+  2287: 'xxxxxxxxx',
 }
 */
 
