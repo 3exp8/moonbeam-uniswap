@@ -1,11 +1,11 @@
 import { ChainId, JSBI, Percent, Token, WDEV } from 'moonbeamswap'
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { routerv2 } from '../moonbase_address.json'
+import { routerv2 } from '../aumbase_address.json'
 
 import { injected, walletconnect } from '../connectors'
 //fortmatic, portis, walletconnect, walletlink, lattice
 export const ROUTER_ADDRESS: { [key: string]: string } = {
-  [ChainId.STANDALONE]: '0x42e2EE7Ba8975c473157634Ac2AF4098190fc741',
+  [ChainId.STANDALONE]: '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314',
   // [ChainId.MOONROCK]: routerv2,
   [ChainId.MOONBASE]: routerv2,
   // [ChainId.MOONSHADOW]: routerv2,
@@ -37,7 +37,7 @@ export const CRV = new Token(
   'CRV',
   'Curve Dao Token'
 )
-export const ALPHA = new Token(ChainId.MAINNET, '0xa1faa113cbE53436Df28FF0aEe54275c13B40975', 18, 'ALPHA', 'AlphaToken')
+//export const ALPHA = new Token(ChainId.MAINNET, '0xa1faa113cbE53436Df28FF0aEe54275c13B40975', 18, 'ALPHA', 'AlphaToken')
 
 const WDEV_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WDEV[ChainId.MAINNET]],
@@ -63,7 +63,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     BAC,
     FXS,
     CRV,
-    ALPHA,
+    // ALPHA,
   ],
 }
 

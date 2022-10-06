@@ -5,7 +5,7 @@ import { Text } from 'rebass'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/images/mainlogo.png'
+import Logo from '../../assets/images/logo.png'
 import { useActiveWeb3React } from '../../hooks'
 //import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -114,9 +114,9 @@ const BalanceText = styled(Text)`
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
   [ChainId.MAINNET]: null,
-  [ChainId.STANDALONE]: 'Moonbeam Development',
+  [ChainId.STANDALONE]: 'AUM Development',
   // [ChainId.MOONROCK]: 'Moonrock Rococo',
-  [ChainId.MOONBASE]: 'Moonbase Alpha',
+  [ChainId.MOONBASE]: 'AUM Alpha',
   // [ChainId.MOONSHADOW]: 'Moonshadow Westend',
 }
 

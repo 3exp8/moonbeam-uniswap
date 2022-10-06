@@ -93,15 +93,15 @@ export default function Menu() {
       </StyledMenuButton>
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://moonbeam.network/">
+          <MenuItem id="link" href="https://aum.coinpay.network/#/explorer">
             <Home size={14} />
             {t('Website')}
           </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/PfpUATX">
+          <MenuItem id="link" href="">
             <MessageCircle size={14} />
             {t('discord')}
           </MenuItem>
-          <MenuItem id="link" href="https://github.com/PureStake/moonbeam">
+          <MenuItem id="link" href="">
             <Code size={14} />
             {t('code')}
           </MenuItem>

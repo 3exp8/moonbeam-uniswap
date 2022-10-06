@@ -21,7 +21,7 @@ import uriToHttp from '../../utils/uriToHttp'
 import { ButtonOutlined, ButtonPrimary, ButtonSecondary } from '../Button'
 
 import Column from '../Column'
-import ListLogo from '../ListLogo'
+// import ListLogo from '../ListLogo'
 import QuestionHelper from '../QuestionHelper'
 import Row, { RowBetween } from '../Row'
 import { PaddedColumn, SearchInput, Separator, SeparatorDark } from './styleds'
@@ -59,32 +59,32 @@ const StyledMenu = styled.div`
   border: none;
 `
 
-const StyledListUrlText = styled.div`
-  max-width: 160px;
-  opacity: 0.6;
-  margin-right: 0.5rem;
-  font-size: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`
+// const StyledListUrlText = styled.div`
+//   max-width: 160px;
+//   opacity: 0.6;
+//   margin-right: 0.5rem;
+//   font-size: 14px;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// `
 
-function ListOrigin({ listUrl }: { listUrl: string }) {
-  const ensName = useMemo(() => parseENSAddress(listUrl)?.ensName, [listUrl])
-  const host = useMemo(() => {
-    if (ensName) return undefined
-    const lowerListUrl = listUrl.toLowerCase()
-    if (lowerListUrl.startsWith('ipfs://') || lowerListUrl.startsWith('ipns://')) {
-      return listUrl
-    }
-    try {
-      const url = new URL(listUrl)
-      return url.host
-    } catch (error) {
-      return undefined
-    }
-  }, [listUrl, ensName])
-  return <>{ensName ?? host}</>
-}
+// function ListOrigin({ listUrl }: { listUrl: string }) {
+//   const ensName = useMemo(() => parseENSAddress(listUrl)?.ensName, [listUrl])
+//   const host = useMemo(() => {
+//     if (ensName) return undefined
+//     const lowerListUrl = listUrl.toLowerCase()
+//     if (lowerListUrl.startsWith('ipfs://') || lowerListUrl.startsWith('ipns://')) {
+//       return listUrl
+//     }
+//     try {
+//       const url = new URL(listUrl)
+//       return url.host
+//     } catch (error) {
+//       return undefined
+//     }
+//   }, [listUrl, ensName])
+//   return <>{ensName ?? host}</>
+// }
 
 function listUrlRowHTMLId(listUrl: string) {
   return `list-row-${listUrl.replace(/\./g, '-')}`
@@ -155,12 +155,12 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
 
   return (
     <Row key={listUrl} align="center" padding="16px" id={listUrlRowHTMLId(listUrl)}>
-      {list.logoURI ? (
+      {/* {list.logoURI ? (
         <ListLogo style={{ marginRight: '1rem' }} logoURI={list.logoURI} alt={`${list.name} list logo`} />
       ) : (
         <div style={{ width: '24px', height: '24px', marginRight: '1rem' }} />
-      )}
-      <Column style={{ flex: '1' }}>
+      )} */}
+      {/* <Column style={{ flex: '1' }}>
         <Row>
           <Text
             fontWeight={isSelected ? 500 : 400}
@@ -179,7 +179,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
             <ListOrigin listUrl={listUrl} />
           </StyledListUrlText>
         </Row>
-      </Column>
+      </Column> */}
       <StyledMenu ref={node as any}>
         <ButtonOutlined
           style={{
