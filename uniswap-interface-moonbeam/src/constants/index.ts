@@ -6,7 +6,9 @@ import { injected, walletconnect } from '../connectors'
 //fortmatic, portis, walletconnect, walletlink, lattice
 export const ROUTER_ADDRESS: { [key: string]: string } = {
   [ChainId.STANDALONE]: '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314',
-  //[ChainId.MOONBASE]: routerv2,
+  // [ChainId.MOONROCK]: routerv2,
+  [ChainId.MOONBASE]: routerv2,
+  // [ChainId.MOONSHADOW]: routerv2,
 }
 
 // a list of tokens by chain
@@ -41,7 +43,7 @@ const WDEV_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WDEV[ChainId.MAINNET]],
   [ChainId.STANDALONE]: [WDEV[ChainId.STANDALONE]],
   // [ChainId.MOONROCK]: [WDEV[ChainId.MOONROCK]],
-  // [ChainId.MOONBASE]: [WDEV[ChainId.MOONBASE]],
+  [ChainId.MOONBASE]: [WDEV[ChainId.MOONBASE]],
   // [ChainId.MOONSHADOW]: [WDEV[ChainId.MOONSHADOW]],
 }
 
