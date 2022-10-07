@@ -18,8 +18,8 @@ export default function useUSDCPrice(currency?: Currency): Price | undefined {
         chainId && wrapped && currencyEquals(WDEV[chainId], wrapped) ? undefined : currency,
         chainId ? WDEV[chainId] : undefined
       ],
-      [wrapped?.equals(USDC) ? undefined : wrapped, chainId === ChainId.MAINNET ? USDC : undefined],
-      [chainId ? WDEV[chainId] : undefined, chainId === ChainId.MAINNET ? USDC : undefined]
+      [wrapped?.equals(USDC) ? undefined : wrapped, chainId === ChainId.MOONBASE ? USDC : undefined],
+      [chainId ? WDEV[chainId] : undefined, chainId === ChainId.MOONBASE ? USDC : undefined]
     ],
     [chainId, currency, wrapped]
   )

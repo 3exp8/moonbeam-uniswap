@@ -18,7 +18,7 @@ import Loader from '../Loader'
 import { isTokenOnList } from '../../utils'
 
 function currencyKey(currency: Currency): string {
-  return currency instanceof Token ? currency.address : currency === DEV ? 'DEV' : ''
+  return currency instanceof Token ? currency.address : currency === DEV ? 'AUM' : ''
 }
 
 const StyledBalanceText = styled(Text)`
@@ -96,6 +96,8 @@ function CurrencyRow({
   const { account, chainId } = useActiveWeb3React()
   const key = currencyKey(currency)
   const selectedTokenList = useSelectedTokenList()
+  console.log('selectedTokenList')
+  console.log(selectedTokenList)
   const isOnSelectedList = isTokenOnList(selectedTokenList, currency)
   const customAdded = useIsUserAddedToken(currency)
   const balance = useCurrencyBalance(account ?? undefined, currency)

@@ -37,8 +37,8 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 }
 
 export function useWDEVContract(withSignerIfPossible?: boolean): Contract | null {
-  const { chainId } = useActiveWeb3React()
-  return useContract(chainId ? '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314' : undefined, WDEV_ABI, withSignerIfPossible)
+  //return useContract(chainId ? WDEV[chainId].address : undefined, WDEV_ABI, withSignerIfPossible)
+  return useContract(undefined, WDEV_ABI, withSignerIfPossible)
 }
 
 export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contract | null {
@@ -46,12 +46,14 @@ export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contrac
   let address: string | undefined
   if (chainId) {
     switch (chainId) {
-      case ChainId.MAINNET:
-        address = '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314'
-        break
-      case ChainId.STANDALONE:
-        break
+      // case ChainId.MOONBASE:
+      //   address = '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314'
+      //   break
+      // case ChainId.STANDALONE:
+      //   address = '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314'
+      //   break
       case ChainId.MOONBASE:
+        address = '0xbba13Fd9088B77E40d3211B9a88A9809EAd6d314'
         break
     }
   }
@@ -78,7 +80,7 @@ export function useMulticallContract(): Contract | null {
 export function useSocksController(): Contract | null {
   const { chainId } = useActiveWeb3React()
   return useContract(
-    chainId === ChainId.MAINNET ? '0x65770b5283117639760beA3F867b69b3697a91dd' : undefined,
+    chainId === ChainId.MOONBASE ? '0x65770b5283117639760beA3F867b69b3697a91dd' : undefined,
     UNISOCKS_ABI,
     false
   )

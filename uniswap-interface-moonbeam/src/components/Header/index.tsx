@@ -113,10 +113,10 @@ const BalanceText = styled(Text)`
 `
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
-  [ChainId.MAINNET]: null,
-  [ChainId.STANDALONE]: 'AUM Network',
+  // [ChainId.MOONBASE]: null,
+  // [ChainId.STANDALONE]: 'AUM Network',
   // [ChainId.MOONROCK]: 'Moonrock Rococo',
-  [ChainId.MOONBASE]: 'AUM Network',
+  [ChainId.MOONBASE]: 'AUM Network'
   // [ChainId.MOONSHADOW]: 'Moonshadow Westend',
 }
 

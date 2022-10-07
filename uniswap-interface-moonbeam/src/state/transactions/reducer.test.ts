@@ -15,7 +15,7 @@ describe('transaction reducer', () => {
       const beforeTime = new Date().getTime()
       store.dispatch(
         addTransaction({
-          chainId: ChainId.MAINNET,
+          chainId: ChainId.MOONBASE,
           summary: 'hello world',
           hash: '0x0',
           approval: { tokenAddress: 'abc', spender: 'def' },
@@ -23,9 +23,9 @@ describe('transaction reducer', () => {
         })
       )
       const txs = store.getState()
-      expect(txs[ChainId.MAINNET]).toBeTruthy()
-      expect(txs[ChainId.MAINNET]?.['0x0']).toBeTruthy()
-      const tx = txs[ChainId.MAINNET]?.['0x0']
+      expect(txs[ChainId.MOONBASE]).toBeTruthy()
+      expect(txs[ChainId.MOONBASE]?.['0x0']).toBeTruthy()
+      const tx = txs[ChainId.MOONBASE]?.['0x0']
       expect(tx).toBeTruthy()
       expect(tx?.hash).toEqual('0x0')
       expect(tx?.summary).toEqual('hello world')
@@ -162,7 +162,7 @@ describe('transaction reducer', () => {
     it('removes all transactions for the chain', () => {
       store.dispatch(
         addTransaction({
-          chainId: ChainId.MAINNET,
+          chainId: ChainId.MOONBASE,
           summary: 'hello world',
           hash: '0x0',
           approval: { tokenAddress: 'abc', spender: 'def' },
@@ -179,13 +179,13 @@ describe('transaction reducer', () => {
         })
       )
       expect(Object.keys(store.getState())).toHaveLength(2)
-      expect(Object.keys(store.getState())).toEqual([String(ChainId.MAINNET), String(ChainId.RINKEBY)])
-      expect(Object.keys(store.getState()[ChainId.MAINNET] ?? {})).toEqual(['0x0'])
+      expect(Object.keys(store.getState())).toEqual([String(ChainId.MOONBASE), String(ChainId.RINKEBY)])
+      expect(Object.keys(store.getState()[ChainId.MOONBASE] ?? {})).toEqual(['0x0'])
       expect(Object.keys(store.getState()[ChainId.RINKEBY] ?? {})).toEqual(['0x1'])
-      store.dispatch(clearAllTransactions({ chainId: ChainId.MAINNET }))
+      store.dispatch(clearAllTransactions({ chainId: ChainId.MOONBASE }))
       expect(Object.keys(store.getState())).toHaveLength(2)
-      expect(Object.keys(store.getState())).toEqual([String(ChainId.MAINNET), String(ChainId.RINKEBY)])
-      expect(Object.keys(store.getState()[ChainId.MAINNET] ?? {})).toEqual([])
+      expect(Object.keys(store.getState())).toEqual([String(ChainId.MOONBASE), String(ChainId.RINKEBY)])
+      expect(Object.keys(store.getState()[ChainId.MOONBASE] ?? {})).toEqual([])
       expect(Object.keys(store.getState()[ChainId.RINKEBY] ?? {})).toEqual(['0x1'])
     })
   })
