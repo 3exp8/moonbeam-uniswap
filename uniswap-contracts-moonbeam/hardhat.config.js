@@ -18,14 +18,14 @@ module.exports = {
       hardhat: {},
 
       moonbase: {
-         url: 'https://rpc.api.moonbase.moonbeam.network',
+         url: 'https://aum-rpc-api.coinpay.network/',
          accounts: [privateKey],
-         chainId: 1287,
+         chainId: 2287,
       },
       dev: {
          url: 'http://127.0.0.1:9933',
          accounts: [privateKeyDev],
-         network_id: '1281',
+         network_id: '2281',
          chainId: 1281,
       },
    },
