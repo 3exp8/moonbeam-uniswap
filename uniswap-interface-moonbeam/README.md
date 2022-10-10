@@ -45,3 +45,5 @@ Run:
 ```
 npm start
 ```
+
+npm install --save ../uniswap-sdk-moonbeam

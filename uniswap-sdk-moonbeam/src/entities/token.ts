@@ -58,21 +58,5 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 }
 
 export const WDEV = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET,
-    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.STANDALONE]: new Token(
-    ChainId.STANDALONE,
-    '0xC2Bf5F29a4384b1aB0C063e1c666f02121B6084a',
-    18,
-    'WDEV',
-    'Wrapped Dev'
-  ),
-  [ChainId.MOONROCK]: new Token(ChainId.MOONROCK, WETH, 18, 'WDEV', 'Wrapped Dev'),
   [ChainId.MOONBASE]: new Token(ChainId.MOONBASE, WETH, 18, 'WDEV', 'Wrapped Dev'),
-  [ChainId.MOONSHADOW]: new Token(ChainId.MOONSHADOW, WETH, 18, 'WDEV', 'Wrapped Dev')
 }
