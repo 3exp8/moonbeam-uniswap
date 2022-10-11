@@ -26,7 +26,7 @@ export const FACTORY_ADDRESS: { [key: string]: string } = {
   // [ChainId.MOONSHADOW]: factory
 }
 
-export const INIT_CODE_HASH = '0x53ac83158af44d277b4eb7ef1b22c3bf2efe90b70a71edbc6197223dffa5dbc8'
+export const INIT_CODE_HASH = '01429e880a7972ebfbba904a5bbe32a816e78273e4b38ffa6bdeaebce8adba7c'
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
 

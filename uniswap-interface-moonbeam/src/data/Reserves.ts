@@ -36,6 +36,8 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
     [tokens]
   )
 
+  console.log(`pairAddresses ${pairAddresses}`)
+
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
 
   return useMemo(() => {
@@ -44,11 +46,22 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
       const tokenA = tokens[i][0]
       const tokenB = tokens[i][1]
 
+      console.log(`PairState.LOADING`)
       if (loading) return [PairState.LOADING, null]
-      if (!tokenA || !tokenB || tokenA.equals(tokenB)) return [PairState.INVALID, null]
-      if (!reserves) return [PairState.NOT_EXISTS, null]
+      if (!tokenA || !tokenB || tokenA.equals(tokenB)) {
+        console.log(`PairState.INVALID`)
+        return [PairState.INVALID, null]
+      }
+      if (!reserves) {
+        console.log(`PairState.NOT_EXISTS`)
+        return [PairState.NOT_EXISTS, null]
+      }
+      console.log(`reserves ${reserves}`)
+
       const { reserve0, reserve1 } = reserves
       const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
+      console.log(`PairState.EXISTS`)
+
       return [
         PairState.EXISTS,
         new Pair(new TokenAmount(token0, reserve0.toString()), new TokenAmount(token1, reserve1.toString()))

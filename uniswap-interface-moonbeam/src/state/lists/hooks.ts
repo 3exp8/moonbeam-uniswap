@@ -31,29 +31,18 @@ export type TokenAddressMap = Readonly<{ [chainId in ChainId]: Readonly<{ [token
  * An empty result, useful as a default.
  */
 const EMPTY_LIST: TokenAddressMap = {
-  // [ChainId.MOONBASE]: {},
-  // [ChainId.STANDALONE]: {},
-  // [ChainId.MOONROCK]: {},
-  [ChainId.MOONBASE]: {}
-  // [ChainId.MOONSHADOW]: {}
+  [ChainId.MOONBASE]: {},
 }
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
   typeof WeakMap !== 'undefined' ? new WeakMap<TokenList, TokenAddressMap>() : null
 
 export function listToTokenMap(list: TokenList): TokenAddressMap {
-  console.log(list)
-
   const result = listCache?.get(list)
-  console.log('result')
-  console.log(result)
-
   if (result) return result
 
   const map = list.tokens.reduce<TokenAddressMap>(
     (tokenMap, tokenInfo) => {
-      console.log('tokenInfo' + tokenInfo.address)
-
       const tags: TagInfo[] =
         tokenInfo.tags
           ?.map(tagId => {
@@ -62,8 +51,7 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
           })
           ?.filter((x): x is TagInfo => Boolean(x)) ?? []
       const token = new WrappedTokenInfo(tokenInfo, tags)
-      console.log('tokenMap[token.chainId]' + tokenMap[token.chainId])
-      //if (tokenMap[token.chainId] !== undefined) throw Error('Duplicate tokens.')
+      if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.')
       return {
         ...tokenMap,
         [token.chainId]: {
@@ -74,8 +62,6 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
     },
     { ...EMPTY_LIST }
   )
-  console.log(`listCache?.set ${list.name}`)
-
   listCache?.set(list, map)
   return map
 }
@@ -87,8 +73,6 @@ export function useTokenList(url: string | undefined): TokenAddressMap {
     const current = lists[url]?.current
     if (!current) return EMPTY_LIST
     try {
-      console.log('listToTokenMap(current)')
-      console.log(listToTokenMap(current))
       return listToTokenMap(current)
     } catch (error) {
       console.error('Could not show token list due to error', error)
